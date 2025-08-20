@@ -1,0 +1,32 @@
+name: Build PDF Report
+
+on:
+  push:  # Trigger khi có push bất kỳ branch nào
+    branches:
+      - "**"
+
+jobs:
+  build-doc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Install Asciidoctor
+        run: |
+          gem install asciidoctor
+          gem install asciidoctor-pdf
+
+      - name: Run build script
+        run: ./build.sh
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-report
+          path: ./output/report.pdf

@@ -1,0 +1,17 @@
+= Sample Report
+Author Name
+2025-08-21
+
+== Introduction
+
+This is a simple AsciiDoc document.
+
+== Content
+
+- Point 1
+- Point 2
+- Point 3
+
+== Conclusion
+
+Generated with Asciidoctor PDF.
