@@ -23,7 +23,9 @@ jobs:
           gem install asciidoctor-pdf
 
       - name: Run build script
-        run: ./build.sh
+        run: | 
+          chmod +x build.sh
+          ./build.sh
 
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v4
